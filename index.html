@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Long-Distance Transport Network - Mockup Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e1e2f 0%, #2d2d44 100%);
+            color: white;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #4f46e5;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 span {
+            background: #4f46e5;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: white;
+        }
+        
+        .logo p {
+            color: #a0a0c0;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            background: #10b981;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-badge .pulse {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1px;
+            background: #e2e8f0;
+            padding: 1px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+        
+        .stat-unit {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-left: 5px;
+        }
+        
+        .stat-trend {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .trend-up { color: #10b981; }
+        .trend-down { color: #ef4444; }
+        
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        /* Map Panel */
+        .map-panel {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .panel-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .dot.green { background: #10b981; }
+        .dot.purple { background: #8b5cf6; }
+        .dot.orange { background: #f59e0b; }
+        .dot.red { background: #ef4444; animation: pulse 1s infinite; }
+        
+        .highway-map {
+            position: relative;
+            height: 400px;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .highway-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .highway-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+        
+        .rsu-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #f59e0b;
+            border: 3px solid #ffd966;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+            z-index: 3;
+        }
+        
+        .vehicle-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 4;
+        }
+        
+        .vehicle-marker:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .vehicle-icon {
+            width: 100%;
+            height: 100%;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5);
+            border: 2px solid white;
+        }
+        
+        .vehicle-marker.satellite .vehicle-icon {
+            background: #8b5cf6;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+        }
+        
+        .vehicle-marker.anomaly .vehicle-icon {
+            background: #ef4444;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+            animation: pulse-anomaly 1s infinite;
+        }
+        
+        @keyframes pulse-anomaly {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .vehicle-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            border: 1px solid #4f46e5;
+        }
+        
+        /* Alerts Panel */
+        .alerts-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .alert-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        
+        .alert-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .alert-tab.active {
+            background: #4f46e5;
+            color: white;
+        }
+        
+        .alert-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .alert-item {
+            padding: 15px;
+            border-left: 4px solid;
+            margin-bottom: 10px;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
+            animation: slideIn 0.3s;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .alert-item.critical { border-left-color: #ef4444; }
+        .alert-item.warning { border-left-color: #f59e0b; }
+        .alert-item.info { border-left-color: #3b82f6; }
+        
+        .alert-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .alert-vehicle {
+            font-weight: bold;
+            color: #ef4444;
+        }
+        
+        .alert-time {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .alert-details {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .alert-confidence {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .confidence-bar {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin-top: 5px;
+        }
+        
+        .confidence-fill {
+            height: 100%;
+            background: #ef4444;
+            border-radius: 2px;
+        }
+        
+        /* Bottom Section */
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: #f8fafc;
+        }
+        
+        /* Vehicle Table */
+        .vehicle-table {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            text-align: left;
+            padding: 12px;
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .status-normal {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-anomaly {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .network-badge {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .network-5g {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .network-sat {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+        
+        /* Protocol Demo */
+        .protocol-demo {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .comparison {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .protocol-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8fafc;
+            text-align: center;
+        }
+        
+        .protocol-card h4 {
+            margin-bottom: 15px;
+        }
+        
+        .protocol-card.ip h4 { color: #64748b; }
+        .protocol-card.ilnp h4 { color: #4f46e5; }
+        
+        .latency-value {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .protocol-card.ip .latency-value { color: #ef4444; }
+        .protocol-card.ilnp .latency-value { color: #10b981; }
+        
+        .latency-label {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        /* Drone Demo */
+        .drone-demo {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .drone-canvas {
+            height: 200px;
+            background: #0f172a;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .drone-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #f59e0b;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            transition: all 0.5s;
+        }
+        
+        .deploy-btn {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .deploy-btn:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <h1>
+                    🚛 National Long-Distance Transport Network
+                    <span>MOCKUP DEMO</span>
+                </h1>
+                <p>Triple-Layer Network v3.0 | ILNP Protocol | Edge AI</p>
+            </div>
+            <div class="status-badge">
+                <div class="pulse"></div>
+                LIVE SIMULATION - SPRINT ALPHA
+            </div>
+        </div>
+        
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">Active Vehicles</div>
+                <div class="stat-value" id="stat-vehicles">12</div>
+                <div class="stat-trend trend-up">↑ 2</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Avg Latency</div>
+                <div class="stat-value" id="stat-latency">8.3<span class="stat-unit">ms</span></div>
+                <div class="stat-trend trend-down">↓ 1.2ms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Handover Time</div>
+                <div class="stat-value" id="stat-handover">15<span class="stat-unit">ms</span></div>
+                <div class="stat-trend trend-up">↑ 2ms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Packet Loss</div>
+                <div class="stat-value" id="stat-loss">0.02<span class="stat-unit">%</span></div>
+                <div class="stat-trend trend-down">↓ 0.01%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">AI Detection</div>
+                <div class="stat-value" id="stat-ai">3.2<span class="stat-unit">ms</span></div>
+                <div class="stat-trend trend-down">↓ 0.3ms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Alerts</div>
+                <div class="stat-value" id="stat-alerts">3</div>
+                <div class="stat-trend trend-up" style="color: #ef4444;">↑ 1</div>
+            </div>
+        </div>
+        
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Map Panel -->
+            <div class="map-panel">
+                <div class="panel-header">
+                    <h3>🗺️ Highway 304 - Real-time Tracking</h3>
+                    <div class="legend">
+                        <div class="legend-item"><span class="dot green"></span> 5G</div>
+                        <div class="legend-item"><span class="dot purple"></span> Satellite</div>
+                        <div class="legend-item"><span class="dot orange"></span> RSU</div>
+                        <div class="legend-item"><span class="dot red"></span> Anomaly</div>
+                    </div>
+                </div>
+                
+                <div class="highway-map" id="map">
+                    <div class="highway-line"></div>
+                    <div class="highway-markers" id="map-markers">
+                        <!-- RSU markers (fixed) -->
+                        <!-- Will be added by JavaScript -->
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-top: 10px; color: #94a3b8; font-size: 12px;">
+                    <span>Chachoengsao</span>
+                    <span>Khao Yai National Park</span>
+                    <span>Nakhon Ratchasima</span>
+                </div>
+            </div>
+            
+            <!-- Alerts Panel -->
+            <div class="alerts-panel">
+                <div class="panel-header">
+                    <h3>🚨 Live Alerts</h3>
+                    <div class="alert-tabs">
+                        <div class="alert-tab active">All</div>
+                        <div class="alert-tab">Critical</div>
+                        <div class="alert-tab">Resolved</div>
+                    </div>
+                </div>
+                
+                <div class="alert-list" id="alert-list">
+                    <!-- Alerts will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Vehicle Table -->
+            <div class="vehicle-table">
+                <div class="table-header">
+                    <h3>🚚 Vehicle Status</h3>
+                    <button style="background: none; border: none; color: #4f46e5; cursor: pointer;">View All →</button>
+                </div>
+                
+                <table id="vehicle-table">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Speed</th>
+                            <th>Pressure</th>
+                            <th>Temp</th>
+                            <th>Network</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehicle-tbody">
+                        <!-- Will be filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Protocol Demo -->
+            <div class="protocol-demo">
+                <h3>🔄 ILNP Protocol Demo</h3>
+                <div class="comparison">
+                    <div class="protocol-card ip">
+                        <h4>Mobile IP</h4>
+                        <div class="latency-value" id="mobile-ip-latency">187ms</div>
+                        <div class="latency-label">Handover Latency</div>
+                        <div style="margin-top: 10px; font-size: 12px; color: #ef4444;">❌ Packet Loss: 3.2%</div>
+                    </div>
+                    <div class="protocol-card ilnp">
+                        <h4>ILNP (Our Innovation)</h4>
+                        <div class="latency-value" id="ilnp-latency">15ms</div>
+                        <div class="latency-label">Handover Latency</div>
+                        <div style="margin-top: 10px; font-size: 12px; color: #10b981;">✅ Packet Loss: 0.02%</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding: 10px; background: #f0f9ff; border-radius: 8px; font-size: 13px;">
+                    <strong>✨ ILNP Advantage:</strong> Identifier separates from Locator → Handover <20ms (90% reduction)
+                </div>
+            </div>
+        </div>
+        
+        <!-- Drone Mesh Demo -->
+        <div style="padding: 20px; background: white;">
+            <h3>🚁 Drone Mesh Emergency Network (Layer 3)</h3>
+            <div class="drone-canvas" id="drone-canvas">
+                <div class="drone-marker" id="drone1" style="left: 10%; top: 30%;"></div>
+                <div class="drone-marker" id="drone2" style="left: 30%; top: 50%;"></div>
+                <div class="drone-marker" id="drone3" style="left: 50%; top: 70%;"></div>
+                <div class="drone-marker" id="drone4" style="left: 70%; top: 40%;"></div>
+                <div class="drone-marker" id="drone5" style="left: 90%; top: 60%;"></div>
+            </div>
+            <button class="deploy-btn" onclick="deployDrones()" id="deploy-btn">🚁 DEPLOY DRONE SWARM (EMERGENCY)</button>
+            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                <span>📡 Status: <span id="drone-status">Standby</span></span>
+                <span>⏱️ Deployment Time: <span id="deploy-time">0</span>s</span>
+                <span>🔋 Battery: <span id="battery">100%</span></span>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            National Long-Distance Transport Network | Triple-Layer Network v3.0 | Sprint Alpha - Week 1 | Mockup Demo for Presentation
+        </div>
+    </div>
+    
+    <script>
+        // Mockup Data
+        let vehicles = [
+            { id: 'TRUCK-6733', speed: 120, pressure: 98, temp: 41, vibration: 8, network: '5G', status: 'normal', x: 15, anomaly: false },
+            { id: 'TRUCK-6742', speed: 115, pressure: 102, temp: 39, vibration: 9, network: '5G', status: 'normal', x: 28, anomaly: false },
+            { id: 'TRUCK-6751', speed: 118, pressure: 156, temp: 82, vibration: 34, network: 'Satellite', status: 'anomaly', x: 45, anomaly: true },
+            { id: 'TRUCK-6760', speed: 122, pressure: 99, temp: 40, vibration: 7, network: '5G', status: 'normal', x: 62, anomaly: false },
+            { id: 'TRUCK-6779', speed: 117, pressure: 104, temp: 42, vibration: 10, network: 'Satellite', status: 'normal', x: 78, anomaly: false }
+        ];
+        
+        let alerts = [
+            { id: 'alert-1', vehicle: 'TRUCK-6751', type: 'LEAK DETECTED', severity: 'critical', time: '09:47:23', confidence: 97, details: 'Pressure: 156 psi | Temp: 82°C | Vibration: 34 Hz' },
+            { id: 'alert-2', vehicle: 'TRUCK-6733', type: 'Handover Complete', severity: 'info', time: '09:45:12', confidence: 100, details: '5G → Satellite handover successful (18ms)' },
+            { id: 'alert-3', vehicle: 'SYSTEM', type: 'Drone Mesh Active', severity: 'warning', time: '09:42:05', confidence: 100, details: '5 drones deployed at KM 45 (accident site)' }
+        ];
+        
+        let dronesDeployed = false;
+        let deploymentTimer = null;
+        let deploymentSeconds = 0;
+        
+        // Initialize map
+        function initMap() {
+            const mapMarkers = document.getElementById('map-markers');
+            
+            // Add RSU markers (every 10km)
+            for (let i = 0; i <= 100; i += 10) {
+                const rsu = document.createElement('div');
+                rsu.className = 'rsu-marker';
+                rsu.style.left = i + '%';
+                rsu.style.top = '50%';
+                rsu.title = `RSU at ${i}km`;
+                mapMarkers.appendChild(rsu);
+            }
+            
+            // Add vehicle markers
+            updateVehicleMarkers();
+        }
+        
+        // Update vehicle markers on map
+        function updateVehicleMarkers() {
+            const mapMarkers = document.getElementById('map-markers');
+            
+            // Remove old vehicle markers
+            const oldMarkers = document.querySelectorAll('.vehicle-marker');
+            oldMarkers.forEach(marker => marker.remove());
+            
+            // Add current vehicles
+            vehicles.forEach(vehicle => {
+                const marker = document.createElement('div');
+                marker.className = 'vehicle-marker';
+                if (vehicle.network === 'Satellite') marker.classList.add('satellite');
+                if (vehicle.anomaly) marker.classList.add('anomaly');
+                
+                marker.style.left = vehicle.x + '%';
+                marker.style.top = '50%';
+                marker.setAttribute('data-id', vehicle.id);
+                marker.onclick = () => showVehicleDetails(vehicle.id);
+                
+                const icon = document.createElement('div');
+                icon.className = 'vehicle-icon';
+                icon.textContent = vehicle.id.replace('TRUCK-', '');
+                
+                const label = document.createElement('div');
+                label.className = 'vehicle-label';
+                label.textContent = vehicle.id;
+                
+                marker.appendChild(icon);
+                marker.appendChild(label);
+                mapMarkers.appendChild(marker);
+            });
+        }
+        
+        // Update vehicle table
+        function updateVehicleTable() {
+            const tbody = document.getElementById('vehicle-tbody');
+            let html = '';
+            
+            vehicles.forEach(v => {
+                html += `
+                    <tr>
+                        <td><strong>${v.id}</strong></td>
+                        <td>${v.speed} km/h</td>
+                        <td style="color: ${v.pressure > 140 ? '#ef4444' : 'inherit'}; font-weight: ${v.pressure > 140 ? 'bold' : 'normal'}">${v.pressure} psi</td>
+                        <td style="color: ${v.temp > 70 ? '#ef4444' : 'inherit'}; font-weight: ${v.temp > 70 ? 'bold' : 'normal'}">${v.temp}°C</td>
+                        <td><span class="network-badge network-${v.network === 'Satellite' ? 'sat' : '5g'}">${v.network}</span></td>
+                        <td><span class="status-badge ${v.anomaly ? 'status-anomaly' : 'status-normal'}">${v.anomaly ? '⚠️ ANOMALY' : '✓ NORMAL'}</span></td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+        
+        // Update alerts list
+        function updateAlerts() {
+            const alertList = document.getElementById('alert-list');
+            let html = '';
+            
+            alerts.forEach(alert => {
+                html += `
+                    <div class="alert-item ${alert.severity}">
+                        <div class="alert-header">
+                            <span class="alert-vehicle">${alert.vehicle}</span>
+                            <span class="alert-time">${alert.time}</span>
+                        </div>
+                        <div class="alert-details">
+                            ⚠️ ${alert.type}<br>
+                            ${alert.details}
+                        </div>
+                        <div class="alert-confidence">
+                            Confidence: ${alert.confidence}%
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" style="width: ${alert.confidence}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            alertList.innerHTML = html;
+        }
+        
+        // Show vehicle details
+        function showVehicleDetails(id) {
+            const vehicle = vehicles.find(v => v.id === id);
+            if (!vehicle) return;
+            
+            alert(`
+                🚛 Vehicle: ${vehicle.id}
+                📍 Position: ${vehicle.x}km
+                📊 Sensor Data:
+                - Pressure: ${vehicle.pressure} psi
+                - Temperature: ${vehicle.temp}°C
+                - Vibration: ${vehicle.vibration} Hz
+                📡 Network: ${vehicle.network}
+                ⚠️ Status: ${vehicle.anomaly ? 'ANOMALY DETECTED' : 'Normal'}
+            `);
+        }
+        
+        // Deploy drones
+        function deployDrones() {
+            if (dronesDeployed) {
+                alert('Drones already deployed!');
+                return;
+            }
+            
+            dronesDeployed = true;
+            document.getElementById('drone-status').textContent = 'Deploying...';
+            document.getElementById('deploy-btn').disabled = true;
+            document.getElementById('deploy-btn').style.opacity = '0.5';
+            
+            // Simulate deployment animation
+            const drones = ['drone1', 'drone2', 'drone3', 'drone4', 'drone5'];
+            const canvas = document.getElementById('drone-canvas');
+            
+            deploymentSeconds = 0;
+            deploymentTimer = setInterval(() => {
+                deploymentSeconds++;
+                document.getElementById('deploy-time').textContent = deploymentSeconds;
+                
+                // Move drones to formation
+                drones.forEach((droneId, index) => {
+                    const drone = document.getElementById(droneId);
+                    if (drone) {
+                        // Simulate movement to mesh formation
+                        if (deploymentSeconds < 3) {
+                            // Moving to positions
+                            const targets = [
+                                { left: 20, top: 20 },
+                                { left: 40, top: 40 },
+                                { left: 60, top: 60 },
+                                { left: 80, top: 30 },
+                                { left: 50, top: 80 }
+                            ];
+                            
+                            const progress = deploymentSeconds / 3;
+                            const currentLeft = parseFloat(drone.style.left);
+                            const currentTop = parseFloat(drone.style.top);
+                            
+                            // Simplified animation - just update positions in the mockup
+                            if (deploymentSeconds === 3) {
+                                drone.style.left = targets[index].left + '%';
+                                drone.style.top = targets[index].top + '%';
+                            }
+                        }
+                    }
+                });
+                
+                if (deploymentSeconds === 3) {
+                    clearInterval(deploymentTimer);
+                    document.getElementById('drone-status').textContent = '✅ Mesh Network Established';
+                    document.getElementById('battery').textContent = '95%';
+                    
+                    // Add alert for drone deployment
+                    alerts.unshift({
+                        id: 'alert-' + Date.now(),
+                        vehicle: 'SYSTEM',
+                        type: 'DRONE MESH ESTABLISHED',
+                        severity: 'info',
+                        time: new Date().toLocaleTimeString(),
+                        confidence: 100,
+                        details: '5 drones deployed at accident site (KM 45)'
+                    });
+                    updateAlerts();
+                    
+                    // Keep only last 10 alerts
+                    if (alerts.length > 10) alerts.pop();
+                }
+            }, 1000);
+            
+            // Battery drain simulation
+            let battery = 100;
+            const batteryInterval = setInterval(() => {
+                battery -= 1;
+                document.getElementById('battery').textContent = battery + '%';
+                
+                if (battery <= 30) {
+                    // Simulate hot-swap
+                    document.getElementById('battery').textContent = '100% (Hot-swapped)';
+                    battery = 100;
+                }
+            }, 2000);
+        }
+        
+        // Simulate real-time updates
+        function simulateUpdates() {
+            setInterval(() => {
+                // Move vehicles
+                vehicles.forEach(v => {
+                    v.x += 0.5;
+                    if (v.x > 100) v.x = 0;
+                    
+                    // Random network changes
+                    if (v.x > 40 && v.x < 60 && Math.random() < 0.1) {
+                        v.network = 'Satellite';
+                    } else if (Math.random() < 0.05) {
+                        v.network = '5G';
+                    }
+                    
+                    // Random sensor fluctuations
+                    if (v.anomaly) {
+                        v.pressure = 150 + Math.random() * 10;
+                        v.temp = 80 + Math.random() * 5;
+                    } else {
+                        v.pressure = 100 + Math.random() * 5;
+                        v.temp = 40 + Math.random() * 2;
+                    }
+                    
+                    // Random anomaly generation
+                    if (Math.random() < 0.02 && !v.anomaly && v.id !== 'TRUCK-6751') {
+                        v.anomaly = true;
+                        v.network = 'Satellite';
+                        
+                        alerts.unshift({
+                            id: 'alert-' + Date.now(),
+                            vehicle: v.id,
+                            type: 'LEAK DETECTED',
+                            severity: 'critical',
+                            time: new Date().toLocaleTimeString(),
+                            confidence: 95 + Math.floor(Math.random() * 5),
+                            details: `Pressure: ${Math.round(v.pressure)} psi | Temp: ${Math.round(v.temp)}°C | Vibration: ${Math.floor(Math.random() * 20 + 20)} Hz`
+                        });
+                        
+                        // Keep only last 10 alerts
+                        if (alerts.length > 10) alerts.pop();
+                    }
+                    
+                    // Auto-resolve anomalies after 30 seconds (for demo)
+                    if (v.anomaly && Math.random() < 0.01 && v.id !== 'TRUCK-6751') {
+                        v.anomaly = false;
+                    }
+                });
+                
+                // Update stats
+                document.getElementById('stat-latency').textContent = (8 + Math.random() * 2).toFixed(1);
+                document.getElementById('stat-handover').textContent = (15 + Math.floor(Math.random() * 5));
+                document.getElementById('stat-loss').textContent = (0.02 + Math.random() * 0.01).toFixed(3);
+                document.getElementById('stat-ai').textContent = (3 + Math.random() * 0.5).toFixed(1);
+                
+                // Update ILNP demo
+                document.getElementById('ilnp-latency').textContent = (15 + Math.floor(Math.random() * 5)) + 'ms';
+                document.getElementById('mobile-ip-latency').textContent = (180 + Math.floor(Math.random() * 30)) + 'ms';
+                
+                // Update UI
+                updateVehicleMarkers();
+                updateVehicleTable();
+            }, 3000);
+        }
+        
+        // Initialize
+        window.onload = function() {
+            initMap();
+            updateVehicleTable();
+            updateAlerts();
+            simulateUpdates();
+        };
+    </script>
+</body>
+</html>
