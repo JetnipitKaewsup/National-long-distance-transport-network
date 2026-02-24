@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation Guide - National Transport Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #f5f7fa;
+            padding: 40px;
+        }
+        
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .guide-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            padding: 0 40px;
+        }
+        
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background: #4f46e5;
+        }
+        
+        .timeline-time {
+            background: #4f46e5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-presenter {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .section h2 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .script-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4f46e5;
+        }
+        
+        .script-box p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .demo-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .demo-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .demo-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .role-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .role-table th {
+            background: #4f46e5;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .role-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .role-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checklist input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #1e293b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-header">
+            <h1>🎯 National Long-Distance Transport Network</h1>
+            <p>Presentation Guide - 14.5 Minutes</p>
+            <p style="margin-top: 10px; opacity: 0.9;">Sprint Alpha Review | Week 1</p>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">5:00</div>
+                <div class="timeline-title">Part 1: Pitch + Architecture</div>
+                <div class="timeline-presenter">Member 1,2,3</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">5:00</div>
+                <div class="timeline-title">Part 2: Sprint + Mockup</div>
+                <div class="timeline-presenter">Member 2,3,4</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">4:00</div>
+                <div class="timeline-title">Part 3: Test Plan + Demo</div>
+                <div class="timeline-presenter">Member 3,5</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">0:30</div>
+                <div class="timeline-title">Q&A</div>
+                <div class="timeline-presenter">All</div>
+            </div>
+        </div>
+        
+        <!-- Demo Links -->
+        <div class="section">
+            <h2>🎮 Live Demos (Click to Open)</h2>
+            <div class="demo-links">
+                <a href="index.html" target="_blank" class="demo-card">
+                    <h3>📊 Main Dashboard</h3>
+                    <p>Real-time vehicle tracking, alerts, sensor data</p>
+                </a>
+                <a href="ilnp-demo.html" target="_blank" class="demo-card">
+                    <h3>🔄 ILNP Protocol</h3>
+                    <p>Handover comparison: Mobile IP vs ILNP</p>
+                </a>
+                <a href="drone-demo.html" target="_blank" class="demo-card">
+                    <h3>🚁 Drone Mesh</h3>
+                    <p>Emergency deployment + battery management</p>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Part 1 Script -->
+        <div class="section">
+            <h2>🎤 Part 1: Project Pitch & Architecture (5:00)</h2>
+            <p><strong>Presenters:</strong> Member 1 (Lead), Member 2 (Network), Member 3 (Protocol)</p>
+            
+            <div class="script-box">
+                <p><strong>0:00-0:30 - Member 1 (Lead):</strong> "สวัสดีครับ/ค่ะ ทีมเราขอนำเสนอโครงการ National Long-Distance Transport Network ระบบเครือข่ายขนส่งทางไกลอัจฉริยะ สำหรับการขนส่งวัตถุอันตรายและการกู้ภัยในพื้นที่เสี่ยง..."</p>
+                
+                <p><strong>0:30-1:15 - Member 2 (Network):</strong> "ทุกวันนี้มีรถบรรทุกวัตถุอันตรายวิ่งบนทางหลวงทั่วประเทศไทย ทั้งสารไวไฟ ก๊าซพิษ วัตถุระเบิด แต่โครงข่ายอินเทอร์เน็ตปัจจุบันยังมีปัญหาสำคัญ..." <em>(คลิกที่ Main Dashboard เพื่อโชว์ปัญหา)</em></p>
+                
+                <p><strong>1:15-2:00 - Member 1 (Lead):</strong> "เราจึงออกแบบ Triple-Layer Network หรือเครือข่ายสามชั้น ประกอบด้วย..." <em>(ชี้ที่ architecture diagram)</em></p>
+                
+                <p><strong>2:00-2:45 - Member 3 (Protocol):</strong> "นวัตกรรมสำคัญของเราคือการใช้ ILNP Protocol ตามมาตรฐาน RFC 6740..." <em>(คลิกที่ ILNP Demo เพื่อโชว์การทำงาน)</em></p>
+                
+                <p><strong>2:45-3:30 - Member 1 (Lead):</strong> "เราใช้กระบวนการ Tree of Thoughts สำรวจแนวทางต่างๆ พบว่าแนวทาง A2, B1, B2 มีความเป็นไปได้สูง..."</p>
+                
+                <p><strong>3:30-4:15 - Member 2 (Network):</strong> "เรากำหนด Performance Requirements ไว้ชัดเจน เช่น Handover ไม่เกิน 20 มิลลิวินาที..."</p>
+                
+                <p><strong>4:15-5:00 - Member 1 (Lead):</strong> "ตอนนี้เราได้ architecture_spec.md ฉบับสมบูรณ์ พร้อมส่งต่อให้ทีมพัฒนา..."</p>
+            </div>
+        </div>
+        
+        <!-- Part 2 Script -->
+        <div class="section">
+            <h2>🎤 Part 2: Sprint Plan & Mockup (5:00)</h2>
+            <p><strong>Presenters:</strong> Member 2 (Network), Member 3 (Protocol), Member 4 (Simulation)</p>
+            
+            <div class="script-box">
+                <p><strong>5:00-5:45 - Member 4 (Simulation):</strong> "มาดู Sprint Alpha ของเรากัน เราวางเป้าหมายไว้ 5 ข้อ ตอนนี้เสร็จไปแล้ว 3 ข้อ..."</p>
+                
+                <p><strong>5:45-6:15 - Member 4 (Simulation):</strong> "เรามี Daily Standup ทุกวันเพื่อติดตามความคืบหน้า..."</p>
+                
+                <p><strong>6:15-7:15 - Member 2 (Network):</strong> "มาดู Mockup ของ Layer 1 และ 2 กัน เราจำลองทางหลวงยาว 50 กิโลเมตร..." <em>(ชี้ที่ Main Dashboard แผนที่)</em></p>
+                
+                <p><strong>7:15-8:00 - Member 4 (Simulation):</strong> "ส่วน Layer 3 เป็นเครือข่ายโดรนฉุกเฉิน..." <em>(คลิกที่ Drone Mesh Demo และกด Deploy)</em></p>
+                
+                <p><strong>8:00-8:30 - Member 3 (Protocol):</strong> "แผนในสัปดาห์ที่ 2 เราจะเริ่ม Implement ทุกส่วน..."</p>
+                
+                <p><strong>8:30-9:00 - Member 4 (Simulation):</strong> "เราเตรียมรับมือความเสี่ยง เช่น NS-3 learning curve แก้ด้วย tutorial..."</p>
+                
+                <p><strong>9:00-10:00 - Member 2 (Network):</strong> "สรุปไทม์ไลน์ สัปดาห์ 1 เราออกแบบเสร็จ สัปดาห์ 2 ลงมือ implement..."</p>
+            </div>
+        </div>
+        
+        <!-- Part 3 Script -->
+        <div class="section">
+            <h2>🎤 Part 3: Mockup & Test Plan (4:00)</h2>
+            <p><strong>Presenters:</strong> Member 3 (Protocol), Member 5 (Tester/QA)</p>
+            
+            <div class="script-box">
+                <p><strong>10:00-10:45 - Member 3 (Protocol):</strong> "เราใช้กระบวนการ ReAct ทดสอบ 3 รอบ รอบแรกทดสอบ Handover พบว่า ILNP ลด latency เหลือ 15-20 มิลลิวินาที..."</p>
+                
+                <p><strong>10:45-11:30 - Member 5 (Tester/QA):</strong> "ในบทบาท Tester/QA ผม/ดิฉันได้ออกแบบ Test Plan ครอบคลุม 4 หมวด..."</p>
+                
+                <p><strong>11:30-12:15 - Member 5 (Tester/QA):</strong> "ตารางการทดสอบแบ่งเป็นสัปดาห์ที่ 2 ทดสอบ unit, สัปดาห์ที่ 3 ทดสอบ integration..."</p>
+                
+                <p><strong>12:15-13:00 - Member 5 (Tester/QA):</strong> "สุดท้ายเป็น Mockup Dashboard ที่เราจะพัฒนา..." <em>(โชว์ Main Dashboard ที่มี alert)</em></p>
+                
+                <p><strong>13:00-13:30 - Member 4 (Simulation):</strong> "เราเตรียมรับมือความเสี่ยง..."</p>
+                
+                <p><strong>13:30-14:00 - Member 1 (Lead):</strong> "ขอบคุณครับ/ค่ะ ทีมเราพร้อมตอบคำถาม"</p>
+            </div>
+        </div>
+        
+        <!-- Role Assignments -->
+        <div class="section">
+            <h2>👥 Role Assignments</h2>
+            <table class="role-table">
+                <tr>
+                    <th>Member</th>
+                    <th>Role</th>
+                    <th>Key Responsibilities</th>
+                    <th>Demo to Present</th>
+                </tr>
+                <tr>
+                    <td>Member 1</td>
+                    <td>Lead/Architect</td>
+                    <td>Architecture design, documentation, coordination</td>
+                    <td>Overview slides</td>
+                </tr>
+                <tr>
+                    <td>Member 2</td>
+                    <td>Network Engineer</td>
+                    <td>5G/NTN, RSU topology, handover</td>
+                    <td>Main Dashboard (map)</td>
+                </tr>
+                <tr>
+                    <td>Member 3</td>
+                    <td>Protocol Specialist</td>
+                    <td>ILNP design, paradox rules</td>
+                    <td>ILNP Demo</td>
+                </tr>
+                <tr>
+                    <td>Member 4</td>
+                    <td>Simulation Engineer</td>
+                    <td>NS-3, drone mesh, integration</td>
+                    <td>Drone Mesh Demo</td>
+                </tr>
+                <tr>
+                    <td>Member 5</td>
+                    <td>Tester/QA & AI</td>
+                    <td>Test plan, AI model, dashboard</td>
+                    <td>Main Dashboard (alerts)</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Preparation Checklist -->
+        <div class="section">
+            <h2>✅ Preparation Checklist</h2>
+            <ul class="checklist">
+                <li><input type="checkbox"> ทดสอบเปิดไฟล์ HTML ทั้ง 3 ไฟล์ (index.html, ilnp-demo.html, drone-demo.html)</li>
+                <li><input type="checkbox"> ตรวจสอบว่า animation ทำงานปกติ</li>
+                <li><input type="checkbox"> ซ้อมการเปลี่ยนระหว่าง demo แต่ละไฟล์</li>
+                <li><input type="checkbox"> เตรียม laptop + projector + remote clicker</li>
+                <li><input type="checkbox"> จับเวลา 14.5 นาที</li>
+                <li><input type="checkbox"> ทีมซ้อมพร้อมกันอย่างน้อย 2 รอบ</li>
+                <li><input type="checkbox"> เตรียม backup (ไฟล์ PDF, offline mode)</li>
+                <li><input type="checkbox"> ตรวจสอบเสียงและไมโครโฟน</li>
+            </ul>
+        </div>
+        
+        <!-- Quick Tips -->
+        <div class="section">
+            <h2>💡 Quick Tips for Presentation</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: #f0f9ff; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #4f46e5; margin-bottom: 10px;">🎯 Key Messages</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>ILNP ลด handover จาก 150ms → 15ms</li>
+                        <li>Triple-Layer ครอบคลุมทุกสถานการณ์</li>
+                        <li>Edge AI ป้องกันก่อนเกิดเหตุ</li>
+                        <li>Drone mesh สร้างเครือข่ายใน 3 นาที</li>
+                    </ul>
+                </div>
+                <div style="background: #f0f9ff; padding: 20px; border-radius: 10px;">
+                    <h4 style="color: #4f46e5; margin-bottom: 10px;">⚠️ Common Mistakes</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>พูดเกินเวลา → ดูนาฬิกาตลอด</li>
+                        <li>demo ไม่ทำงาน → เตรียม screenshot สำรอง</li>
+                        <li>สมาชิกพูดแทรกกัน → ซ้อมให้ดี</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>National Long-Distance Transport Network | Triple-Layer Network v3.0</p>
+            <p style="margin-top: 10px; opacity: 0.7;">เปิดไฟล์ presentation-guide.html นี้เพื่อดูคู่มือการนำเสนอ</p>
+        </div>
+    </div>
+</body>
+</html>
