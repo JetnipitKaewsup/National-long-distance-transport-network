@@ -1,8 +1,3 @@
-# DAFT: Dyadic Attention Field Theory
-## Domain Interface Mapping and Validation Framework
-### (Extended Edition — Project-Specific Formalization)
-
----
 
 <div align="center">
 
