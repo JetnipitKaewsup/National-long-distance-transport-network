@@ -1,7 +1,7 @@
 # Role Assignment - Group 7
 
 ## Project: 
-
+# National long distance transport network
 ---
 
 ## Group Members
@@ -26,7 +26,6 @@
 | **Responsibilities** | - Design overall Triple-Layer Network architecture<br>- Define system structure and components<br>- Plan integration of each Layer<br>- Analyze and select appropriate technologies<br>- Define Technical Specifications |
 | **Code Responsibilities** | - `TripleLayerNetworkSimulator` (main structure)<br>- `NetworkConstants` (parameter configuration)<br>- `NodeType`, `PacketType` (Enum design)<br>- Inter-layer connections |
 | **Report Sections** | - Introduction and project overview<br>- Overall system architecture<br>- Triple-Layer Network design<br>- Technical specifications |
-| **Presentation** | - Part 1: Introduction and project overview (2 minutes)<br>- Part 4: Summary and Q&A |
 
 ---
 
@@ -38,7 +37,7 @@
 | **Responsibilities** | - Design and develop ILNP (Identifier-Locator Protocol)<br>- Simulate DetNet/TSN operations<br>- Design Handover Mechanism<br>- Configure network parameters (Bandwidth, Latency, Reliability)<br>- Test connection performance |
 | **Code Responsibilities** | - `simulate_handover()`<br>- `get_connected_core()`<br>- `find_alternative_connections()`<br>- `calculate_signal_strength()`<br>- `_setup_connections()` |
 | **Report Sections** | - ILNP and DetNet operations<br>- Handover Mechanism<br>- Inter-layer connections<br>- Network parameters |
-| **Presentation** | - Part 1: Model Maturity and Improvement (with Phai and Eva)<br>- Part 2: DAFT Domain Interface Mapping (with Eva and Gam)<br>- Part 4: Q&A |
+
 
 ---
 
@@ -50,7 +49,7 @@
 | **Responsibilities** | - Design and develop Edge AI Models<br>- Develop Anomaly Detection Model<br>- Develop Route Optimization Model<br>- Design Digital Twin<br>- Improve system with RAG and Federated Learning |
 | **Code Responsibilities** | - `class DigitalTwin`<br>- `class AnomalyDetectionModel`<br>- `class RouteOptimizationModel`<br>- `predict_node_failure()`<br>- `predict_handover_needed()`<br>- `check_emergencies()` |
 | **Report Sections** | - Edge AI and Digital Twin operations<br>- Anomaly Detection and Z-score<br>- Route Optimization and A* Algorithm<br>- Federated Learning and Human-in-the-loop |
-| **Presentation** | - Part 1: Model Maturity and Improvement (with Phai and Cake)<br>- Part 2: DAFT Domain Interface Mapping (with Cake and Gam)<br>- Part 4: Q&A |
+
 
 ---
 
@@ -62,7 +61,7 @@
 | **Responsibilities** | - Design Quantum-resistant Encryption<br>- Develop Tree of Thoughts and Chain of Thought<br>- Create Governance Framework<br>- Define Security Policy<br>- Design Audit Trail and Compliance Monitoring |
 | **Code Responsibilities** | - `class QuantumResistantEncryption`<br>- `class TreeOfThoughts`<br>- `class ChainOfThought`<br>- `_handover_solution_paths()`<br>- `_battery_management_paths()`<br>- `_emergency_response_paths()` |
 | **Report Sections** | - Quantum-resistant Security<br>- Tree of Thoughts Reasoning<br>- Chain of Thought Reasoning<br>- Governance Framework<br>- Compliance and Security |
-| **Presentation** | - Part 2: DAFT Domain Interface Mapping (with Cake and Eva)<br>- Part 3: Quality Metrics, Governance, Live Demo (with Lookkaew)<br>- Part 4: Q&A |
+
 
 ---
 
@@ -74,4 +73,3 @@
 | **Responsibilities** | - Test all system functions<br>- Measure and record Performance Metrics<br>- Design Demo Scenarios<br>- Develop Demo Controller<br>- Verify standards compliance |
 | **Code Responsibilities** | - `class DemoController`<br>- `demo_b1_handover()`<br>- `demo_b2_anomaly()`<br>- `demo_b2_emergency()`<br>- `demo_b2_battery()`<br>- `run_demo_menu()`<br>- Statistics collection (`metrics`) |
 | **Report Sections** | - Quality Metrics and KPIs<br>- Test results<br>- Live Demonstration<br>- Standards compliance (3GPP, IEEE, ITU, NIST) |
-| **Presentation** | - Part 3: Quality Metrics, Governance, Live Demo (with Gam)<br>- Part 4: Q&A |

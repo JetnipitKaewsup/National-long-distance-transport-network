@@ -1,4 +1,4 @@
-# Sprint Plan (4 Sprints)
+# Sprint Plan
 
 ## Sprint 1: Problem Understanding
 - Study networking background
