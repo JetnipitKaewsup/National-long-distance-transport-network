@@ -2,82 +2,80 @@
 
 ---
 
-# 📋 Role Assignment - กลุ่มที่ 7
+# Role Assignment - Group 7
 
-## โครงการ: Triple-Layer Network สำหรับการขนส่งวัตถุอันตรายและการกู้ภัยฉุกเฉิน
+## Project: 
 
 ---
 
-## 👥 สมาชิกกลุ่ม
+## Group Members
 
-| รหัสนักศึกษา | ชื่อ-นามสกุล | ชื่อเล่น | Section |
+| Student ID | Name | Nickname | Section |
 |:---:|:---|:---:|:---:|
-| 673380056-7 | รพีภัทร แก้วคูณ | ไผ่ | 2 |
-| 673380068-0 | สุชาดา ศรีจักรโคตร | เค้ก | 2 |
-| 673380286-0 | พิไลพร คำเวียง | เอวา | 2 |
-| 673380297-5 | หทัยพัทธ วิสุทธิธรรม | แก้ม | 1 |
-| 673380299-1 | เจตนิพิฐ แก้วทรัพย์ | ลูกแก้ว | 1 |
+| 673380056-7 | Rapeephat Kaewkoon | Pai | 2 |
+| 673380068-0 | Suchada Srijakkot | Cake | 2 |
+| 673380286-0 | Pilaiporn Khamwiang | Eva | 2 |
+| 673380297-5 | Hathaipat Wisutthitham | Gam | 1 |
+| 673380299-1 | Jetnipit Kaewsap | Lookkaew | 1 |
 
 ---
 
-## 🎯 บทบาทและความรับผิดชอบ (Role Assignment)
+## Roles and Responsibilities
 
-### 1. **รพีภัทร แก้วคูณ (ไผ่) - Architect**
+### 1. **Rapeephat Kaewkoon (Pai) - Architect**
 
-| ด้าน | รายละเอียด |
+| Aspect | Details |
 |:---|:---|
-| **บทบาทหลัก** | สถาปนิกระบบ (System Architect) |
-| **ความรับผิดชอบ** | - ออกแบบสถาปัตยกรรม Triple-Layer Network โดยรวม<br>- กำหนดโครงสร้างและองค์ประกอบของระบบ<br>- วางแผนการทำงานร่วมกันของแต่ละ Layer<br>- วิเคราะห์และเลือกเทคโนโลยีที่เหมาะสม<br>- กำหนดข้อกำหนดทางเทคนิค (Technical Specifications) |
-| **ส่วนของโค้ดที่รับผิดชอบ** | - `TripleLayerNetworkSimulator` (โครงสร้างหลัก)<br>- `NetworkConstants` (การกำหนดค่าพารามิเตอร์)<br>- `NodeType`, `PacketType` (การออกแบบ Enum)<br>- การเชื่อมต่อระหว่าง Layers |
-| **ส่วนของรายงาน** | - บทนำและภาพรวมโครงการ<br>- สถาปัตยกรรมระบบโดยรวม<br>- การออกแบบ Triple-Layer Network<br>- ข้อกำหนดทางเทคนิค |
-| **การนำเสนอ** | - ช่วงที่ 1: บทนำและภาพรวมโครงการ (2 นาที)<br>- ช่วงที่ 4: สรุปและตอบคำถาม |
+| **Primary Role** | System Architect |
+| **Responsibilities** | - Design overall Triple-Layer Network architecture<br>- Define system structure and components<br>- Plan integration of each Layer<br>- Analyze and select appropriate technologies<br>- Define Technical Specifications |
+| **Code Responsibilities** | - `TripleLayerNetworkSimulator` (main structure)<br>- `NetworkConstants` (parameter configuration)<br>- `NodeType`, `PacketType` (Enum design)<br>- Inter-layer connections |
+| **Report Sections** | - Introduction and project overview<br>- Overall system architecture<br>- Triple-Layer Network design<br>- Technical specifications |
+| **Presentation** | - Part 1: Introduction and project overview (2 minutes)<br>- Part 4: Summary and Q&A |
 
 ---
 
-### 2. **สุชาดา ศรีจักรโคตร (เค้ก) - Engineer**
+### 2. **Suchada Srijakkot (Cake) - Engineer**
 
-| ด้าน | รายละเอียด |
+| Aspect | Details |
 |:---|:---|
-| **บทบาทหลัก** | วิศวกรเครือข่าย (Network Engineer) |
-| **ความรับผิดชอบ** | - ออกแบบและพัฒนา ILNP (Identifier-Locator Protocol)<br>- จำลองการทำงานของ DetNet/TSN<br>- ออกแบบ Handover Mechanism<br>- กำหนดค่าพารามิเตอร์เครือข่าย (Bandwidth, Latency, Reliability)<br>- ทดสอบประสิทธิภาพการเชื่อมต่อ |
-| **ส่วนของโค้ดที่รับผิดชอบ** | - `simulate_handover()`<br>- `get_connected_core()`<br>- `find_alternative_connections()`<br>- `calculate_signal_strength()`<br>- `_setup_connections()` |
-| **ส่วนของรายงาน** | - การทำงานของ ILNP และ DetNet<br>- Handover Mechanism<br>- การเชื่อมต่อระหว่าง Layers<br>- พารามิเตอร์เครือข่าย |
-| **การนำเสนอ** | - ช่วงที่ 1: Model Maturity and Improvement (ร่วมกับไผ่และเอวา)<br>- ช่วงที่ 2: DAFT Domain Interface Mapping (ร่วมกับเอวาและแก้ม)<br>- ช่วงที่ 4: ตอบคำถาม |
+| **Primary Role** | Network Engineer |
+| **Responsibilities** | - Design and develop ILNP (Identifier-Locator Protocol)<br>- Simulate DetNet/TSN operations<br>- Design Handover Mechanism<br>- Configure network parameters (Bandwidth, Latency, Reliability)<br>- Test connection performance |
+| **Code Responsibilities** | - `simulate_handover()`<br>- `get_connected_core()`<br>- `find_alternative_connections()`<br>- `calculate_signal_strength()`<br>- `_setup_connections()` |
+| **Report Sections** | - ILNP and DetNet operations<br>- Handover Mechanism<br>- Inter-layer connections<br>- Network parameters |
+| **Presentation** | - Part 1: Model Maturity and Improvement (with Phai and Eva)<br>- Part 2: DAFT Domain Interface Mapping (with Eva and Gam)<br>- Part 4: Q&A |
 
 ---
 
-### 3. **พิไลพร คำเวียง (เอวา) - Specialist**
+### 3. **Pilaiporn Khamwiang (Eva) - Specialist**
 
-| ด้าน | รายละเอียด |
+| Aspect | Details |
 |:---|:---|
-| **บทบาทหลัก** | ผู้เชี่ยวชาญด้าน AI และ Digital Twin (AI/Digital Twin Specialist) |
-| **ความรับผิดชอบ** | - ออกแบบและพัฒนา Edge AI Models<br>- พัฒนา Anomaly Detection Model<br>- พัฒนา Route Optimization Model<br>- ออกแบบ Digital Twin<br>- ปรับปรุงระบบด้วย RAG และ Federated Learning |
-| **ส่วนของโค้ดที่รับผิดชอบ** | - `class DigitalTwin`<br>- `class AnomalyDetectionModel`<br>- `class RouteOptimizationModel`<br>- `predict_node_failure()`<br>- `predict_handover_needed()`<br>- `check_emergencies()` |
-| **ส่วนของรายงาน** | - การทำงานของ Edge AI และ Digital Twin<br>- Anomaly Detection และ Z-score<br>- Route Optimization และ A* Algorithm<br>- Federated Learning และ Human-in-the-loop |
-| **การนำเสนอ** | - ช่วงที่ 1: Model Maturity and Improvement (ร่วมกับไผ่และเค้ก)<br>- ช่วงที่ 2: DAFT Domain Interface Mapping (ร่วมกับเค้กและแก้ม)<br>- ช่วงที่ 4: ตอบคำถาม |
+| **Primary Role** | AI & Digital Twin Specialist |
+| **Responsibilities** | - Design and develop Edge AI Models<br>- Develop Anomaly Detection Model<br>- Develop Route Optimization Model<br>- Design Digital Twin<br>- Improve system with RAG and Federated Learning |
+| **Code Responsibilities** | - `class DigitalTwin`<br>- `class AnomalyDetectionModel`<br>- `class RouteOptimizationModel`<br>- `predict_node_failure()`<br>- `predict_handover_needed()`<br>- `check_emergencies()` |
+| **Report Sections** | - Edge AI and Digital Twin operations<br>- Anomaly Detection and Z-score<br>- Route Optimization and A* Algorithm<br>- Federated Learning and Human-in-the-loop |
+| **Presentation** | - Part 1: Model Maturity and Improvement (with Phai and Cake)<br>- Part 2: DAFT Domain Interface Mapping (with Cake and Gam)<br>- Part 4: Q&A |
 
 ---
 
-### 4. **หทัยพัทธ วิสุทธิธรรม (แก้ม) - DevOps**
+### 4. **Hathaipat Wisutthitham (Gam) - DevOps**
 
-| ด้าน | รายละเอียด |
+| Aspect | Details |
 |:---|:---|
-| **บทบาทหลัก** | วิศวกร DevOps และความปลอดภัย (DevOps & Security Engineer) |
-| **ความรับผิดชอบ** | - ออกแบบ Quantum-resistant Encryption<br>- พัฒนา Tree of Thoughts และ Chain of Thought<br>- จัดทำ Governance Framework<br>- กำหนด Security Policy<br>- ออกแบบ Audit Trail และ Compliance Monitoring |
-| **ส่วนของโค้ดที่รับผิดชอบ** | - `class QuantumResistantEncryption`<br>- `class TreeOfThoughts`<br>- `class ChainOfThought`<br>- `_handover_solution_paths()`<br>- `_battery_management_paths()`<br>- `_emergency_response_paths()` |
-| **ส่วนของรายงาน** | - ความปลอดภัยแบบ Quantum-resistant<br>- Tree of Thoughts Reasoning<br>- Chain of Thought Reasoning<br>- Governance Framework<br>- Compliance และ Security |
-| **การนำเสนอ** | - ช่วงที่ 2: DAFT Domain Interface Mapping (ร่วมกับเค้กและเอวา)<br>- ช่วงที่ 3: Quality Metrics, Governance, Live Demo (ร่วมกับลูกแก้ว)<br>- ช่วงที่ 4: ตอบคำถาม |
+| **Primary Role** | DevOps & Security Engineer |
+| **Responsibilities** | - Design Quantum-resistant Encryption<br>- Develop Tree of Thoughts and Chain of Thought<br>- Create Governance Framework<br>- Define Security Policy<br>- Design Audit Trail and Compliance Monitoring |
+| **Code Responsibilities** | - `class QuantumResistantEncryption`<br>- `class TreeOfThoughts`<br>- `class ChainOfThought`<br>- `_handover_solution_paths()`<br>- `_battery_management_paths()`<br>- `_emergency_response_paths()` |
+| **Report Sections** | - Quantum-resistant Security<br>- Tree of Thoughts Reasoning<br>- Chain of Thought Reasoning<br>- Governance Framework<br>- Compliance and Security |
+| **Presentation** | - Part 2: DAFT Domain Interface Mapping (with Cake and Eva)<br>- Part 3: Quality Metrics, Governance, Live Demo (with Lookkaew)<br>- Part 4: Q&A |
 
 ---
 
-### 5. **เจตนิพิฐ แก้วทรัพย์ (ลูกแก้ว) - Tester/QA**
+### 5. **Jetnipit Kaewsap (Lookkaew) - Tester/QA**
 
-| ด้าน | รายละเอียด |
+| Aspect | Details |
 |:---|:---|
-| **บทบาทหลัก** | ผู้ทดสอบและประกันคุณภาพ (Tester & Quality Assurance) |
-| **ความรับผิดชอบ** | - ทดสอบระบบทุกฟังก์ชัน<br>- วัดและบันทึก Performance Metrics<br>- ออกแบบ Demo Scenarios<br>- พัฒนา Demo Controller<br>- ตรวจสอบความสอดคล้องกับมาตรฐาน |
-| **ส่วนของโค้ดที่รับผิดชอบ** | - `class DemoController`<br>- `demo_b1_handover()`<br>- `demo_b2_anomaly()`<br>- `demo_b2_emergency()`<br>- `demo_b2_battery()`<br>- `run_demo_menu()`<br>- การเก็บสถิติ (`metrics`) |
-| **ส่วนของรายงาน** | - Quality Metrics และ KPI<br>- ผลการทดสอบ<br>- การสาธิตการทำงาน (Live Demo)<br>- การตรวจสอบมาตรฐาน (3GPP, IEEE, ITU, NIST) |
-| **การนำเสนอ** | - ช่วงที่ 3: Quality Metrics, Governance, Live Demo (ร่วมกับแก้ม)<br>- ช่วงที่ 4: ตอบคำถาม |
-
----
+| **Primary Role** | Tester & Quality Assurance |
+| **Responsibilities** | - Test all system functions<br>- Measure and record Performance Metrics<br>- Design Demo Scenarios<br>- Develop Demo Controller<br>- Verify standards compliance |
+| **Code Responsibilities** | - `class DemoController`<br>- `demo_b1_handover()`<br>- `demo_b2_anomaly()`<br>- `demo_b2_emergency()`<br>- `demo_b2_battery()`<br>- `run_demo_menu()`<br>- Statistics collection (`metrics`) |
+| **Report Sections** | - Quality Metrics and KPIs<br>- Test results<br>- Live Demonstration<br>- Standards compliance (3GPP, IEEE, ITU, NIST) |
+| **Presentation** | - Part 3: Quality Metrics, Governance, Live Demo (with Gam)<br>- Part 4: Q&A |
