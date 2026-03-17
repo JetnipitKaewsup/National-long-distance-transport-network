@@ -673,16 +673,7 @@ triple-layer-network/
 
 | File | Description |
 |------|-------------|
-| `network_constants.py` | All configuration parameters (latency, bandwidth, battery, etc.) |
-| `network_simulator.py` | Main simulation engine with Triple-Layer Network implementation |
-| `digital_twin.py` | Digital Twin class for state synchronization and prediction |
-| `edge_ai.py` | Anomaly detection and route optimization models |
-| `encryption.py` | Quantum-resistant encryption simulation |
-| `reasoning.py` | Tree of Thoughts and Chain of Thought implementations |
-| `visualization.py` | Network topology plotting and animation |
-| `demo_controller.py` | Manual demo controller for step-by-step scenarios |
-| `scenario_*.py` | Individual demo scenarios |
-| `main.py` | Entry point with demo menu |
+| `main.py` | Entry point with demo menu (NetworkConstants, DigitalTwin, Edge AI Models, Encryption, Reasoning Frameworks, Network Simulator, Visualization, Demo Scenarios) |
 
 ---
 
@@ -697,8 +688,8 @@ triple-layer-network/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/triple-layer-network.git
-   cd triple-layer-network
+   git clone https://https://github.com/JetnipitKaewsup/National-long-distance-transport-network.git
+   cd DEMO Simulation
    ```
 
 2. **Create and activate virtual environment** (recommended)
@@ -718,7 +709,6 @@ triple-layer-network/
 numpy
 matplotlib
 networkx
-pytest
 ```
 
 ### Running the Simulation
