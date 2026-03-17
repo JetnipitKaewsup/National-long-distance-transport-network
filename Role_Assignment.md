@@ -4,15 +4,16 @@
 # National long distance transport network
 ---
 
-## Group Members
 
-| Student ID | Name | Nickname | Section |
-|:---:|:---|:---:|:---:|
-| 673380056-7 | Rapeephat Kaewkoon | Pai | 2 |
-| 673380068-0 | Suchada Srijakkot | Cake | 2 |
-| 673380286-0 | Pilaiporn Khamwiang | Eva | 2 |
-| 673380297-5 | Hathaipat Wisutthitham | Gam | 1 |
-| 673380299-1 | Jetnipit Kaewsap | Lookkaew | 1 |
+##  Team Members
+
+| Role | Name | ID | Section |
+|------|------|-----|---------|
+| Architect | รพีภัทร แก้วคูณ (ไผ่) | 673380056-7 | 2 |
+| Engineer | สุชาดา ศรีจักรโคตร (เค้ก) | 673380068-0 | 2 |
+| Specialist | พิไลพร คำเวียง (เอวา) | 673380286-0 | 2 |
+| DevOps | หทัยพัทธ วิสุทธิธรรม (แก้ม) | 673380297-5 | 1 |
+| Tester/QA | เจตนิพิฐ แก้วทรัพย์ (ลูกแก้ว) | 673380299-1 | 1 |
 
 ---
 

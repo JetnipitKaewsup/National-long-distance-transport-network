@@ -50,7 +50,7 @@ The network ensures:
 
 ---
 
-##  Team Members
+##  Group Members
 
 | Role | Name | ID | Section |
 |------|------|-----|---------|
