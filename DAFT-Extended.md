@@ -5,8 +5,6 @@
 <div align="center">
 
 # DAFT
-## Digital-Analog Fusion Transport Network
-### An Extended Edition
 
 ---
 
