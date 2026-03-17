@@ -63,11 +63,11 @@ The system complies with the following international standards:
 
 | Standard | Description | Compliance Status | Relevant Component |
 |----------|-------------|-------------------|---------------------|
-| **3GPP TS 22.261** | Service requirements for mission-critical applications | ✅ Full compliance | Handover latency <50 ms, Reliability 99.999% |
-| **3GPP TR 38.821** | Solutions for NR to support non-terrestrial networks | ✅ Full compliance | Satellite integration (Layer 2) |
-| **IEEE 802.1 TSN** | Time-Sensitive Networking standards | ✅ Full compliance | DetNet/TSN implementation, Jitter <50 μs |
-| **ITU-R M.2160** | IMT-2030 (6G) vision framework | ✅ Aligned | 6G core network design |
-| **IETF RFC 6740** | Identifier-Locator Network Protocol (ILNP) | ✅ Implemented | ILNP for seamless handover |
+| **3GPP TS 22.261** | Service requirements for mission-critical applications | Full compliance | Handover latency <50 ms, Reliability 99.999% |
+| **3GPP TR 38.821** | Solutions for NR to support non-terrestrial networks | Full compliance | Satellite integration (Layer 2) |
+| **IEEE 802.1 TSN** | Time-Sensitive Networking standards | Full compliance | DetNet/TSN implementation, Jitter <50 μs |
+| **ITU-R M.2160** | IMT-2030 (6G) vision framework | Aligned | 6G core network design |
+| **IETF RFC 6740** | Identifier-Locator Network Protocol (ILNP) | Implemented | ILNP for seamless handover |
 
 ### 2.2 National Regulations
 
