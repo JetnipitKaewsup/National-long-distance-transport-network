@@ -185,7 +185,7 @@ Moving Vehicle
 
 ---
 
-## 📊 Model Maturity Assessment
+##  Model Maturity Assessment
 
 Using **Tree of Thoughts** framework to evaluate technologies across three dimensions:
 
@@ -823,14 +823,3 @@ Demonstrates automatic drone battery replacement to maintain continuous coverage
 
 ---
 
-##  License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-##  Contact
-
-For questions or collaboration, please contact the team at: **group7@ku.th**
-
----
