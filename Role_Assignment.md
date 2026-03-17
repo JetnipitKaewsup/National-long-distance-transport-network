@@ -1,7 +1,3 @@
-# Role Assignment.md
-
----
-
 # Role Assignment - Group 7
 
 ## Project: 
