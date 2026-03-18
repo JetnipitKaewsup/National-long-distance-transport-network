@@ -530,6 +530,37 @@ class NetworkEngine:
             if vehicle_id in self.nodes:
                 self.nodes[vehicle_id].position = new_pos
 
+
+    def get_connected_core(self, vehicle_id: str) -> Optional[str]:
+        """Get the core node connected to a vehicle"""
+        if vehicle_id not in self.nodes:
+            return None
+        
+        vehicle = self.nodes[vehicle_id]
+        
+        # หา core connection
+        for conn in vehicle.connections:
+            if conn.startswith('core_'):
+                return conn
+        
+        return None
+
+    def calculate_signal_strength(self, distance: float) -> float:
+        """Calculate signal strength based on distance"""
+        if distance < 100:
+            return 1.0
+        elif distance < 500:
+            return 0.8 - 0.3 * (distance - 100) / 400
+        elif distance < 1000:
+            return 0.5 - 0.3 * (distance - 500) / 500
+        else:
+            return max(0.1, 0.2 - 0.1 * (distance - 1000) / 1000)
+
+    @property
+    def hazmat_vehicles(self):
+        """Get list of hazmat vehicle IDs"""
+        return self.node_types.get('HAZMAT_VEHICLE', [])
+
     def _handle_battery_update(self, data: Dict = None):
         """Handle drone battery updates"""
         dt = data.get('dt', 1.0) if data else 1.0

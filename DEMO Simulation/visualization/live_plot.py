@@ -55,7 +55,13 @@ class LivePlot:
         self.axes[0, 1].set_xlim(0, 60)
         self.axes[0, 1].set_ylim(0, 60)  # 🔥 ปรับสเกล 0-60 ms
         self.axes[0, 1].set_yticks([0, 10, 20, 30, 40, 50, 60])
+
+        # เพิ่มแถบสีแสดงช่วง ILNP (15-20 ms)
         self.axes[0, 1].axhspan(15, 20, alpha=0.2, color='yellow', label='ILNP Range (15-20ms)')
+
+        # เพิ่ม grid ถี่ขึ้น
+        self.axes[0, 1].set_yticks([5, 15, 25, 35, 45, 55], minor=True)
+        self.axes[0, 1].grid(True, which='minor', alpha=0.1, linestyle=':')
         
         # 3. Drone battery
         self.axes[0, 2].set_title('Drone Battery', fontsize=12)
@@ -81,10 +87,16 @@ class LivePlot:
         self.axes[1, 1].set_title('Vehicle Positions & Movement', fontsize=12)
         self.axes[1, 1].set_xlabel('X Position (m)')
         self.axes[1, 1].set_ylabel('Y Position (m)')
-        self.axes[1, 1].grid(True, alpha=0.3)
+        self.axes[1, 1].grid(True, alpha=0.3, linestyle='--')
         self.axes[1, 1].set_xlim(-600, 600)
         self.axes[1, 1].set_ylim(-600, 600)
-        self.axes[1, 1].set_aspect('equal')
+        self.axes[1, 1].set_xticks([-600, -400, -200, 0, 200, 400, 600])
+        self.axes[1, 1].set_yticks([-600, -400, -200, 0, 200, 400, 600])
+
+        # เพิ่ม grid ถี่ขึ้น
+        self.axes[1, 1].set_xticks([-500, -300, -100, 100, 300, 500], minor=True)
+        self.axes[1, 1].set_yticks([-500, -300, -100, 100, 300, 500], minor=True)
+        self.axes[1, 1].grid(True, which='minor', alpha=0.1, linestyle=':')
         
         # วาดวงกลมแสดงเขต 5G (รัศมี 500m)
         circle = plt.Circle((0, 0), 500, color='blue', alpha=0.1, label='5G Coverage')
