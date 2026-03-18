@@ -1,0 +1,76 @@
+{
+  "timestamp": 180,
+  "metrics": {
+    "total_packets": 165,
+    "delivered_packets": 164,
+    "dropped_packets": 0,
+    "handovers_completed": 1,
+    "handover_failures": 0,
+    "emergencies_handled": 0,
+    "average_latency": 0.017999999999999936,
+    "total_energy_consumed": 0.0,
+    "start_time": 1773810258.3548148,
+    "end_time": 1773810463.2642536
+  },
+  "drone_stats": {
+    "total": 8,
+    "active": 8,
+    "patrolling": 0,
+    "charging": 0,
+    "deploying": 0,
+    "returning": 0,
+    "idle": 8,
+    "failed": 0,
+    "avg_battery": 0.9748611111111111,
+    "coverage": 0.88,
+    "mesh_connections": 0
+  },
+  "deployment_history": [],
+  "collected_data": [
+    {
+      "time": 1773810328.9921267,
+      "data": {
+        "time": 60.0,
+        "total_packets": 52,
+        "delivered_packets": 52,
+        "dropped_packets": 0,
+        "handovers": 0,
+        "emergencies": 0,
+        "avg_latency_ms": 18.000000000000007,
+        "active_drones": 8,
+        "avg_battery": 0.9916666666666667,
+        "coverage_km2": 0.88
+      }
+    },
+    {
+      "time": 1773810396.6515355,
+      "data": {
+        "time": 120.0,
+        "total_packets": 110,
+        "delivered_packets": 110,
+        "dropped_packets": 0,
+        "handovers": 0,
+        "emergencies": 0,
+        "avg_latency_ms": 18.000000000000007,
+        "active_drones": 8,
+        "avg_battery": 0.9831944444444445,
+        "coverage_km2": 0.88
+      }
+    },
+    {
+      "time": 1773810462.1327405,
+      "data": {
+        "time": 180.0,
+        "total_packets": 164,
+        "delivered_packets": 164,
+        "dropped_packets": 0,
+        "handovers": 1,
+        "emergencies": 0,
+        "avg_latency_ms": 17.999999999999936,
+        "active_drones": 8,
+        "avg_battery": 0.975,
+        "coverage_km2": 0.88
+      }
+    }
+  ]
+}
